@@ -190,7 +190,7 @@ def count_ad_days(dt):
     dt = [int(x) for x in dt.split('/')]
     base_dt = date(base_ad['year'], base_ad['month'], base_ad['day'])
     dt = date(dt[0], dt[1], dt[2])
-    diff = abs(base_dt - dt).days
+    diff = (dt - base_dt).days
     return {'diff': diff, 'date_ad': dt}
 
 
@@ -198,7 +198,7 @@ def offset_bs_days(day_data):
     day_count = day_data['diff']
     date_ad = day_data['date_ad']
     bs_date = base_bs
-    if day_count >= 0:
+    if day_count > 0:
         bs_date['day'] += day_count
         while bs_date['day'] > calendar_data[bs_date['year']][bs_date['month'] - 1]:
             bs_date['day'] -= calendar_data[bs_date['year']][bs_date['month'] - 1]
@@ -252,13 +252,13 @@ def offset_bs_days(day_data):
 
 
 def offset_ad_days(day_count):
-    st_dt = date(base_ad['year'], base_ad['month'] - 1, base_ad['day'])
+    st_dt = date(base_ad['year'], base_ad['month'], base_ad['day'])
     dt = st_dt + timedelta(days=day_count)
     month = dt.month
     day_of_week = dt.weekday()
     return {
         'year': dt.year,
-        'month': month + 1,
+        'month': month,
         'str_month': dt.strftime('%B'),
         'str_short_month': dt.strftime('%b'),
         'day': dt.day,
