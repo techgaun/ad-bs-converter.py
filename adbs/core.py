@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from datetime import date, timedelta
+from copy import deepcopy
 from .nepday import get_nepday_of_week
 from .nepnumber import get_nepali_num
 
@@ -197,8 +198,8 @@ def count_ad_days(dt):
 def offset_bs_days(day_data):
     day_count = day_data['diff']
     date_ad = day_data['date_ad']
-    bs_date = base_bs
-    if day_count > 0:
+    bs_date = deepcopy(base_bs)
+    if day_count >= 0:
         bs_date['day'] += day_count
         while bs_date['day'] > calendar_data[bs_date['year']][bs_date['month'] - 1]:
             bs_date['day'] -= calendar_data[bs_date['year']][bs_date['month'] - 1]

@@ -2,22 +2,27 @@
 
 data = {
     'ne': {
-        'full': ('आइतवार', 'सोमवार', 'मगलवार', 'बुधवार',
-                 'बिहिवार', 'शुक्रवार', 'शनिवार'),
-        'short': ('आइत', 'सोम', 'मगल', 'बुध', 'बिहि', 'शुक्र', 'शनि'),
-        'min': ('आ', 'सो', 'म', 'बु', 'बि', 'शु', 'श')
+        'full': ('सोमवार', 'मगलवार', 'बुधवार', 'बिहिवार',
+                 'शुक्रवार', 'शनिवार', 'आइतवार'),
+        'short': ('सोम', 'मगल', 'बुध', 'बिहि', 'शुक्र', 'शनि', 'आइत'),
+        'min': ('सो', 'म', 'बु', 'बि', 'शु', 'श', 'आ')
     },
     'en': {
-        'full': ('Aaitabaar', 'Sombaar', 'Mangalbaar', 'Budhabaar',
-                 'Bihibaar', 'Shukrabaar', 'Shanibaar'),
-        'short': ('Aaita', 'Som', 'Mangal', 'Budha',
-                  'Bihi', 'Shukra', 'Shani'),
-        'min': ('Aai', 'So', 'Man', 'Bu', 'Bi', 'Shu', 'Sha')
+        'full': ('Sombaar', 'Mangalbaar', 'Budhabaar', 'Bihibaar',
+                 'Shukrabaar', 'Shanibaar', 'Aaitabaar'),
+        'short': ('Som', 'Mangal', 'Budha', 'Bihi',
+                  'Shukra', 'Shani', 'Aaita'),
+        'min': ('So', 'Man', 'Bu', 'Bi', 'Shu', 'Sha', 'Aai')
     }
 }
 
 
 def get_nepday_of_week(inp, type='all', lang='ne'):
+    '''Returns name of day of week in Nepali language.
+
+    The index follows same format as python datetime.
+    0 - Sombaar, ..., 6 - Aaitabaar
+    '''
     if type == 'all':
         return {
             'full': data[lang]['full'][inp],
