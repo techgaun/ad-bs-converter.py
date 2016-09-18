@@ -270,12 +270,16 @@ def offset_ad_days(day_count):
 
 
 def ad_to_bs(dt):
+    '''Converts AD to BS.'''
     return offset_bs_days(count_ad_days(dt))
 
 
 def bs_to_ad(dt):
+    '''Converts BS to AD'''
     return offset_ad_days(count_bs_days(dt))
 
 
 if __name__ == '__main__':
-    print('Work in progress')
+    print('AD to BS converter. Please check https://github.com/techgaun/ad-bs-converter.py for usage.')
+    print('Below is an example')
+    print(ad_to_bs('2016/10/1'))
