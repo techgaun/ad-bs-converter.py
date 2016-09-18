@@ -1,4 +1,4 @@
-# ad-bs-converter.py
+# ad-bs-converter.py [![Build Status](https://semaphoreci.com/api/v1/samaracharya/ad-bs-converter-py/branches/master/badge.svg)](https://semaphoreci.com/samaracharya/ad-bs-converter-py)
 
 > Python implementation of https://github.com/techgaun/ad-bs-converter
 
